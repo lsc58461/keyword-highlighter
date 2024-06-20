@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+## Keyword Highlighter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React로 작성된 Keyword Highlighter입니다. 검색어를 입력하고 검색을 하면, 정규표현식 검사를 거쳐 리스트에 검색어만 하이라이트 되어 나타납니다.
 
-## Available Scripts
+## 🚀 시작 가이드
 
-In the project directory, you can run:
+프로젝트를 클론합니다.
 
-### `npm start`
+```shell
+git clone https://github.com/lsc58461/keyword-highlighter.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+프로젝트 폴더로 이동합니다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```shell
+cd keyword-highlighter
+```
 
-### `npm test`
+필요한 패키지들을 설치합니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```shell
+npm install or npm i
+```
 
-### `npm run build`
+로컬 개발 서버를 실행합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```shell
+npm run start or npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Vercel
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[보러가기](https://jeongyun-keyword-highlighter.vercel.app/)
 
-### `npm run eject`
+## 기술 스택
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- react 18.3.1
+- typeScript 4.9.5
+- tailwindcss 3.4.4
+- react-router-dom 6.23.1
+- prettier 3.3.2
+- prettier-plugin-tailwindcss 0.6.5
