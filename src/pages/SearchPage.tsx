@@ -1,34 +1,16 @@
 import SearchBar from "../components/SearchBar";
 import SEARCH_RESULTS from "../constants/searchResult";
+import useHighlight from "../hooks/useHighlight";
 import useSearchBar from "../hooks/useSearchBar";
 
 function SearchPage() {
   const { searchValue, handleSearchValueChange } = useSearchBar();
-
-  const escapeRegExp = (string: string) => {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  };
-
-  const highlightSearchTerm = (text: string, searchTerm: string) => {
-    if (!searchTerm) return text;
-
-    const escapedSearchTerm = escapeRegExp(searchTerm);
-    const regex = new RegExp(`(${escapedSearchTerm})`, "gi");
-    const parts = text.split(regex);
-
-    return parts.map((part, index) =>
-      regex.test(part) ? (
-        <b className="text-20pxr text-cyan-700 tablet:text-24pxr" key={index}>
-          {part}
-        </b>
-      ) : (
-        part
-      ),
-    );
-  };
+  const highlightSearchTerm = useHighlight({
+    className: "text-20pxr text-cyan-700 tablet:text-24pxr",
+  });
 
   const filteredResults = SEARCH_RESULTS.filter((result) =>
-    result.toLowerCase().includes(searchValue.toLowerCase()),
+    result.toLowerCase().includes(searchValue.trim().toLowerCase()),
   );
 
   return (
