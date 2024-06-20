@@ -9,9 +9,13 @@ function SearchPage() {
     className: "text-20pxr text-cyan-700 tablet:text-24pxr",
   });
 
-  const filteredResults = SEARCH_RESULTS.filter((result) =>
-    result.toLowerCase().includes(searchValue.trim().toLowerCase()),
-  );
+  const isSearchValue = searchValue.trim().length > 0;
+
+  const filteredResults = isSearchValue
+    ? SEARCH_RESULTS.filter((result) =>
+        result.toLowerCase().includes(searchValue.trim().toLowerCase()),
+      )
+    : SEARCH_RESULTS;
 
   return (
     <main>
@@ -19,7 +23,7 @@ function SearchPage() {
         <SearchBar onSearchValueChange={handleSearchValueChange} />
       </section>
       <section className="mx-auto mt-46pxr max-w-6xl px-16pxr">
-        {searchValue && (
+        {isSearchValue && (
           <h1 className="text-32pxr font-bold text-gray-800">
             검색 결과: {filteredResults.length}개
           </h1>
@@ -31,7 +35,9 @@ function SearchPage() {
                 key={index}
                 className="h-60pxr cursor-pointer content-center rounded-2xl bg-cyan-500 px-12pxr py-8pxr text-center text-18pxr text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-cyan-600 active:scale-100 active:bg-cyan-700 tablet:text-22pxr"
               >
-                {highlightSearchTerm(result, searchValue)}
+                {isSearchValue
+                  ? highlightSearchTerm(result, searchValue)
+                  : result}
               </li>
             ))}
           </ul>
